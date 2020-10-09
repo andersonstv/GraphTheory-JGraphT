@@ -14,11 +14,10 @@ public class TarefaDois07 {
     private static final String graphpathname = "." + sep + "src" + sep + "main" + sep +"java" + sep + "graphs" + sep;
 
     public static void main(String[] args) {
-        Graph<DefaultVertex, DefaultWeightedEdge> graph = new SimpleWeightedGraph<DefaultVertex, DefaultWeightedEdge>(
+        Graph<DefaultVertex, DefaultWeightedEdge> graph = new SimpleWeightedGraph<>(
                 VertexEdgeUtil.createDefaultVertexSupplier(),
                 SupplierUtil.createDefaultWeightedEdgeSupplier());
         ImportUtil.importWeightedGraphCSV(graph, graphpathname + "weightededgelist.csv", false);
-
         ShortestPathAlgorithm<DefaultVertex, DefaultWeightedEdge> shortestPath = new DijkstraShortestPath<>(graph);
         ShortestPathAlgorithm<DefaultVertex, DefaultWeightedEdge> smallestPath = new BFSShortestPath<>(graph);
 
